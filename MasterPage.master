@@ -1,0 +1,51 @@
+﻿<!-- MasterPage.master -->
+
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html dir="rtl">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="StyleSheet.css">
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav-bar">
+            <a href="Default.aspx">דף בית</a>
+            <%=Session["SiginingLinks"] %>
+            <a href="Gallary.aspx">גלריית תמונות</a>
+            <a href="FootballNews.aspx">חדשות כדורגל</a>
+            <a href="BasketballNews.aspx">חדשות כדורסל</a>
+            <%=Session["userLinks"] %>
+            <%=Session["adminLinks"] %>
+            <div id="brand-name">חדשות הספורט הישראלי</div>
+            <div id="welcome-username"><%=userStatus%></div>
+        </nav>
+        <main>
+            <table>
+                <tr>
+                    <td id="pageTitleCell" colspan="2">
+                        <asp:ContentPlaceHolder ID="pageTitle" runat="server"></asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="pageContentCell" colspan="2">
+                        <asp:ContentPlaceHolder ID="pageContent" runat="server"></asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3>מספר כניסות: <%=count%></h3>
+                    </td>
+                </tr>
+            </table>
+        </main>
+        <footer>
+            <p>© כל הזכויות שמורות - חדשות הספורט הישראלי</p>
+        </footer>
+    </div>
+</body>
+</html>

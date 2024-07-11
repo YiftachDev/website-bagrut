@@ -1,0 +1,260 @@
+﻿/* Core Styles */
+:root {
+    --primary-color: #007BFF; /* Vibrant Blue */
+    --accent-color: #FFC107; /* Amber for highlights */
+    --text-color: #212529; /* Darker gray for better readability */
+    --background-color: #E9ECEF; /* Light gray background */
+    --nav-height: 65px;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.wrapper {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+/* Navigation Bar Enhancements */
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    padding: 0 20px;
+    height: var(--nav-height);
+}
+
+    .nav-bar a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        position: relative;
+        padding: 5px 0; /* Add padding for the underline effect */
+    }
+
+        .nav-bar a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s;
+        }
+
+        .nav-bar a:hover::after, .nav-bar a:focus::after {
+            width: 100%;
+        }
+
+#brand-name {
+    font-weight: 700;
+    color: #fff;
+    font-size: 24px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Content Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+table, #pageTitleCell, #pageContentCell, footer {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 16px;
+    margin-top: 40px;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+    footer p {
+        margin: 0; /* Adjust according to your needs */
+    }
+
+/* General Form and Table Styling */
+.container {
+    background: #fff;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+
+.form-control {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.form-check-label {
+    margin-left: 10px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-primary:hover {
+        background-color: darken(var(--primary-color), 10%);
+    }
+
+/* Specific Styles for Search, Delete, and Edit Pages */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+input[type="submit"] {
+    margin-top: 10px;
+}
+
+/* Responsive Styles for Better Mobile Viewing */
+@media (max-width: 768px) {
+    .form-control, .btn-primary {
+        width: 100%;
+    }
+
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+}
+
+body, h1, h2, h3, p, input, select, textarea, button, table {
+    text-align: right; /* Ensures text aligns to the right */
+}
+
+.form-control {
+    /* Adjusts text input and other form elements to RTL */
+    direction: rtl;
+}
+
+/* Flips margins and paddings for RTL */
+.margin-left-rtl {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.padding-left-rtl {
+    padding-left: 0;
+    padding-right: 15px; /* Adjust value as needed */
+}
+
+/* Adjusts table headers and data cells */
+th, td {
+    text-align: right; /* Adjusts alignment for table headers and cells */
+}
+
+/* Additional adjustments for specific elements might be necessary */
+
+.container, .nav-bar, .wrapper, any other flex or grid container {
+    direction: rtl; /* Sets the direction of flex or grid items to RTL */
+}
+
+.news-card {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px;
+    width: calc(33% - 40px);
+    float: left;
+    background: #fff;
+}
+
+
+.news-card-content {
+    padding: 15px;
+    text-align: right; /* Aligns text to the right for RTL */
+}
+
+.news-card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.news-card-description {
+    font-size: 14px;
+    color: #666;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 10px;
+}
+
+    .gallery img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
